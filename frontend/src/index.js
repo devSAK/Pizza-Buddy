@@ -12,10 +12,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import HomeScreen from "./screens/HomeScreen";
+import store from "./store";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,11 +36,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HelmetProvider>
-      {/* <Provider> */}
-      <PayPalScriptProvider deferLoading={true}>
-        <RouterProvider router={router} />
-      </PayPalScriptProvider>
-      {/* </Provider> */}
+      <Provider store={store}>
+        <PayPalScriptProvider deferLoading={true}>
+          <RouterProvider router={router} />
+        </PayPalScriptProvider>
+      </Provider>
     </HelmetProvider>
   </React.StrictMode>
 );
