@@ -17,6 +17,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import HomeScreen from "./screens/HomeScreen";
 import store from "./store";
+import LoginScreen from "./screens/LoginScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
         path="/search/:keyword/page/:pageNumber"
         element={<HomeScreen />}
       />
+      <Route path="/login" element={<LoginScreen />} />
     </Route>
   )
 );
